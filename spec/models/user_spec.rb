@@ -12,7 +12,9 @@ describe User do
     expect(ss.length).to eq 5
   end
 
-  it "can send a spam email" do
+  it "can send a spam email", :mail do
+    #ActionMailer::Base.deliveries.count = []
+
     @user.send_spam_delivery!
     expect(@user.deliveries.count).to eq 3
 
