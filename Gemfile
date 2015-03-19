@@ -46,6 +46,7 @@ gem 'figaro'
 gem 'activesupport'
 gem 'slim-rails'
 gem 'httparty'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -53,6 +54,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'quiet_assets'
   gem 'factory_girl_rails'
+end
+
+group :development do
+  gem 'letter_opener'
 end
 
 group :test do
