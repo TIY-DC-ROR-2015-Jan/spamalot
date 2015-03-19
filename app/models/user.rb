@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
 
   def send_spam_delivery!
     # FIXME: implement
+    SpamMailer.spam_aggregate(self).deliver_now
   end
 end
