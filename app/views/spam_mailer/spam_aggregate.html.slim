@@ -1,5 +1,7 @@
 p Hello, #{@user.email}
 
+= link_to "Unsubscribe", new_delivery_url
+
 table
   tr
     - @spams.each do |s|
