@@ -8,7 +8,18 @@ class User < ActiveRecord::Base
   has_many :spams, through: :deliveries
 
   def send_spam_delivery!
-    # FIXME: implement
-    SpamMailer.spam_aggregate(self).deliver_now
+    next_spams = find_undelivered 3
+    SpamMailer.spam_aggregate(self, next_spams).deliver_later
+    note_delivery next_spams
+  end
+
+  def find_undelivered count
+    delivered = spams.pluck :id
+    Spam.where.not(id: delivered).order("RANDOM()").first count
+  end
+
+  def note_delivery delivered
+    # Delivery.create user: self, spam: s
+    delivered.each { |s| spams.push s }
   end
 end

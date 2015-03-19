@@ -4,8 +4,9 @@ class SpamMailer < ApplicationMailer
   #  @url  = 'http://example.com/login'
   #  mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   #end
-  def spam_aggregate user
-    mail to: user.email, subject: "Recent spams"
+  def spam_aggregate user, spams
+    @user, @spams = user, spams
+    mail to: @user.email, subject: "Recent spams"
     # Render template(s) in app/views/spam_mailer/spam_aggregate.(html|text).slim
   end
 

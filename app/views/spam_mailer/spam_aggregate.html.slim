@@ -1,1 +1,7 @@
-h1 Spam Mailer
+p Hello, #{@user.email}
+
+table
+  tr
+    - @spams.each do |s|
+      td
+        img src=s.url
