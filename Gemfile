@@ -61,6 +61,7 @@ group :development do
 end
 
 group :test do
+  gem 'faker'
   gem 'simplecov'
   gem 'zonebie'
 end

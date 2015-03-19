@@ -1,0 +1,7 @@
+Hello, <%= @user.email %>
+
+If you want to see spam, you should accept HTML email.
+
+<% @spams.each do |s| %>
+* <%= s.url %>
+<% end %>
