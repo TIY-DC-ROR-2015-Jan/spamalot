@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :deliveries
   has_many :spams, through: :deliveries
+
+  def send_spam_delivery!
+    # FIXME: implement
+  end
 end
